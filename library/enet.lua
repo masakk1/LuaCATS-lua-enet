@@ -75,6 +75,7 @@ local host = {}
 ---@param address string # `<ipaddress>:<port>` or `<hostname>:<port>` or `*:<port>`
 ---@param channel_count? number # defaults to `1`
 ---@param data? number # an integer value that can be associated with the connect event. Defaults to `0`
+---@return ENetPeer
 function host:connect(address, channel_count, data) end
 
 ---Wait for events, send and receive any ready packets. `timeout`
@@ -90,7 +91,7 @@ function host:connect(address, channel_count, data) end
 ---A "receive" event also has a data entry which is a Lua string
 ---containing the data received.
 ---@param timeout number? # defaults to `0`
----@return ENetEvent
+---@return ENetEvent?
 function host:service(timeout) end
 
 ---Checks for any queued events and dispatches one if available.
